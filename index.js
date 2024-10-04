@@ -4,7 +4,9 @@ const cors = require('cors'); // Importa CORS
 const app = express();
 const encryptionRoutes = require('./routes/encryptionRoutes');
 
-app.use(cors()); // Habilita CORS para todas las rutas
+app.use(cors({
+  origin: 'https://cifrar-front.vercel.app', // Permite el acceso solo desde este dominio
+}));
 app.use(express.json());
 app.use('/api', encryptionRoutes);
 
